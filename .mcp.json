@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "jetro": {
+      "type": "stdio",
+      "command": "C:\\Users\\USER\\.jetro\\runtime\\node-win32-x64.exe",
+      "args": [
+        "C:\\Users\\USER\\.jetro\\mcp-server\\index.js"
+      ],
+      "env": {
+        "JET_WORKSPACE": "c:\\Users\\USER\\OneDrive\\Desktop\\intternship\\finally_webiste_marketix",
+        "JET_API_URL": "https://api.jetro.ai",
+        "PATH": "C:\\Users\\USER\\.jetro\\runtime;C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\MinGW\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\Program Files\\R\\R-4.5.2\\bin;C:\\Program Files (x86)\\Microsoft SQL Server\\170\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\170\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\180\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\170\\DTS\\Binn\\;C:\\MinGW\\bin;C:\\MinGW\\bin\\mingw32-c++.exe;\"C:\\Program Files\\Java\\jdk-17\"\\bin;C:\\Program Files\\GitHub CLI\\;C:\\Users\\USER\\.local\\bin;C:\\Users\\USER\\.cargo\\bin;C:\\Program Files\\MySQL\\MySQL Shell 8.0\\bin\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\;C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Launcher\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;C:\\MinGW;C:\\Users\\USER\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\USER\\AppData\\Local\\GitHubDesktop\\bin;C:\\Users\\USER\\AppData\\Roaming\\npm;C:\\Users\\USER\\AppData\\Local\\Programs\\Antigravity\\bin;C:\\Program Files\\LLVM\\bin;C:\\Users\\USER\\AppData\\Local\\Programs\\Ollama;C:\\Users\\USER\\.cargo\\bin;C:\\Users\\USER\\OneDrive\\Desktop\\flutter app\\flutter\\bin;C:\\Program Files\\Java\\jdk-17\\bin;D:\\flutter_app\\flutter\\bin;C:\\Users\\USER\\AppData\\Local\\Programs\\Antigravity IDE\\bin"
+      }
+    }
+  }
+}
