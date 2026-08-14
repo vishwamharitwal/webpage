@@ -16,16 +16,7 @@ interface Node {
 
 export default function ConstellationGrid() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
-    const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
-
-    // Sync theme preference
-    useEffect(() => {
-        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        setIsDarkMode(mediaQuery.matches);
-        const handler = (e: MediaQueryListEvent) => setIsDarkMode(e.matches);
-        mediaQuery.addEventListener('change', handler);
-        return () => mediaQuery.removeEventListener('change', handler);
-    }, []);
+    const isDarkMode = true; // Forced dark mode for Marketix theme
 
     useEffect(() => {
         const canvas = canvasRef.current;
