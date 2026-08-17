@@ -85,7 +85,28 @@ const portfolio = [
       { value: "2M+", label: "Views — Top-performing long-form video" },
       { value: "410K+", label: "Views — Top 4 performing Short" }
     ],
-    logoPath: "/images/portfolio/gyan-bindu.png"
+    logoPath: "/images/portfolio/gyan-bindu.jpg"
+  },
+  {
+    client: "Design Solution Studio",
+    tags: "Content Strategy · Production · Shooting · Scripting · Social Media",
+    description: "MarketiX Media partnered with Design Solution Studio (DSS Stone World), a Jaipur-based luxury stone studio specializing in CNC inlay, 3D murals and architectural stone solutions.\n\nWe manage the content process end-to-end — from content planning and scripting to production, on-site shooting, creative direction and final execution. The focus is on presenting their craftsmanship, projects and material quality through visually compelling content designed for architects, interior designers and premium buyers.\n\nOur role is not limited to creating individual posts. We build a consistent visual content system that strengthens the brand’s digital presence and communicates the quality of its work.",
+    metrics: [],
+    logoPath: "/images/portfolio/dss-logo.png"
+  },
+  {
+    client: "Vridx Media — Nagpur",
+    tags: "Video Editing · Website Development · Digital Support",
+    description: "MarketiX Media works with Vridx Media, a Nagpur-based digital marketing agency, as an execution partner for selected digital projects.\n\nWe support their team with video editing, website development and other digital production requirements, helping them deliver projects efficiently while maintaining quality and consistency.\n\nOur role operates behind the scenes, allowing their team to focus on their clients while we handle the technical and creative execution required for delivery.",
+    metrics: [],
+    logoPath: "/images/portfolio/vridx-logo.jpg"
+  },
+  {
+    client: "Nitya Art N Craft",
+    tags: "Content Production · Product Shoot · Video Editing",
+    description: "MarketiX Media worked with Nitya Art N Craft, a manufacturer and exporter of return gifts, festive décor and wedding favours, to create visually engaging content for its digital presence.\n\nOur work focused on product-focused content, creative presentation and video execution, showcasing their handcrafted products in a premium, lifestyle-oriented format.\n\nThe objective was to make the products more visually appealing online while building a consistent content presence for the brand.",
+    metrics: [],
+    logoPath: "/images/portfolio/nitya-logo.png"
   }
 ];
 
@@ -252,57 +273,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. FEATURED WORK (PORTFOLIO) */}
-      <section className="bg-slate-50 text-slate-900 py-32 border-t border-slate-200">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="mb-20">
-            <p className="text-accent font-semibold uppercase tracking-wider mb-4">FEATURED WORK</p>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Our Portfolio</h2>
-          </div>
-
-          <div className="flex flex-col gap-24">
-            {portfolio.map((item, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6 }}
-                className="flex flex-col lg:flex-row gap-12 items-start"
-              >
-                {/* Image/Logo Side */}
-                <div className="lg:w-1/3 w-full bg-white p-12 rounded-3xl flex items-center justify-center border border-slate-200 shadow-sm aspect-square overflow-hidden">
-                  <img src={item.logoPath} alt={item.client} className="w-full h-auto object-contain drop-shadow-sm" />
-                </div>
-                
-                {/* Content Side */}
-                <div className="lg:w-2/3 w-full flex flex-col justify-center h-full">
-                  <h3 className="text-3xl md:text-4xl font-bold mb-2">{item.client}</h3>
-                  <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-8">{item.tags}</p>
-                  
-                  <div className="space-y-4 text-slate-600 mb-10 text-lg leading-relaxed">
-                    {item.description.split('\n\n').map((paragraph, i) => (
-                      <p key={i}>{paragraph}</p>
-                    ))}
-                  </div>
-
-                  {/* Metrics */}
-                  <div className="grid sm:grid-cols-2 gap-8 pt-8 border-t border-slate-200">
-                    {item.metrics.map((metric, i) => (
-                      <div key={i}>
-                        <h4 className="text-4xl font-black text-slate-900 mb-2">{metric.value}</h4>
-                        <p className="text-sm font-medium text-slate-500">{metric.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. THE GROWTH SUITE */}
+      {/* 4. THE GROWTH SUITE */}
       <section id="services" className="bg-[#0a0f18] py-32 border-t border-white/5">
         <div className="container mx-auto px-6 md:px-12">
           <div className="mb-20">
@@ -397,9 +368,44 @@ export default function Home() {
           </div>
 
           <div className="mb-32">
-            <div className="w-full h-96 bg-white/5 rounded-3xl border border-white/10 flex items-center justify-center mb-8 overflow-hidden group relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <p className="text-secondary/40 font-mono">[ Portfolio Highlight Reel / Case Study Visuals ]</p>
+            <div className="flex gap-8 overflow-x-auto snap-x snap-mandatory pb-8 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              {portfolio.map((item, index) => (
+                <div 
+                  key={index} 
+                  className="min-w-[85vw] md:min-w-[600px] snap-center bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 flex flex-col justify-between group hover:bg-white/10 transition-colors"
+                >
+                  <div className="flex items-center gap-6 mb-8">
+                    <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center p-3 shrink-0">
+                      <img src={item.logoPath} alt={item.client} className="w-full h-full object-contain" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold">{item.client}</h3>
+                      <p className="text-accent text-sm font-semibold tracking-wider mt-1">{item.tags}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4 text-secondary/70 mb-12 flex-grow text-lg leading-relaxed">
+                    {item.description.split('\n\n').map((paragraph, i) => (
+                      <p key={i}>{paragraph}</p>
+                    ))}
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-6 pt-8 border-t border-white/10 mt-auto">
+                    {item.metrics.map((metric, i) => (
+                      <div key={i}>
+                        <h4 className="text-4xl font-black text-white mb-2">{metric.value}</h4>
+                        <p className="text-sm font-medium text-secondary/50">{metric.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Scroll Indicators */}
+            <div className="flex justify-center gap-2 mt-4">
+              {portfolio.map((_, i) => (
+                <div key={i} className="w-2 h-2 rounded-full bg-white/20"></div>
+              ))}
             </div>
           </div>
 
