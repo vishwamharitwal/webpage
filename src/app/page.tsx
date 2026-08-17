@@ -76,6 +76,19 @@ const sectors = [
   { s: "Professional Services", f: "Authority positioning, organic distribution, and high-ticket client acquisition." }
 ];
 
+const portfolio = [
+  {
+    client: "Gyan Bindu G.S. Academy",
+    tags: "Content Production · Video Editing",
+    description: "MarketiX Media partnered with Gyan Bindu G.S. Academy, a leading Indian education platform with 1.22M+ subscribers, to produce high-quality long-form and short-form content for YouTube.\n\nOur focus was to bring strong storytelling, professional editing and engaging visual execution to educational content—making complex information more watchable, structured and platform-ready.\n\nThe collaboration delivered significant organic reach, with a 2M+ view long-form video becoming the channel’s top-performing video, while a Short produced during the engagement reached 410K+ views, ranking among the channel’s top-performing Shorts.",
+    metrics: [
+      { value: "2M+", label: "Views — Top-performing long-form video" },
+      { value: "410K+", label: "Views — Top 4 performing Short" }
+    ],
+    logoPath: "/images/portfolio/gyan-bindu.png"
+  }
+];
+
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [heroTextIndex, setHeroTextIndex] = useState(0);
@@ -239,7 +252,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. THE GROWTH SUITE */}
+      {/* 4. FEATURED WORK (PORTFOLIO) */}
+      <section className="bg-slate-50 text-slate-900 py-32 border-t border-slate-200">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="mb-20">
+            <p className="text-accent font-semibold uppercase tracking-wider mb-4">FEATURED WORK</p>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Our Portfolio</h2>
+          </div>
+
+          <div className="flex flex-col gap-24">
+            {portfolio.map((item, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+                className="flex flex-col lg:flex-row gap-12 items-start"
+              >
+                {/* Image/Logo Side */}
+                <div className="lg:w-1/3 w-full bg-white p-12 rounded-3xl flex items-center justify-center border border-slate-200 shadow-sm aspect-square overflow-hidden">
+                  <img src={item.logoPath} alt={item.client} className="w-full h-auto object-contain drop-shadow-sm" />
+                </div>
+                
+                {/* Content Side */}
+                <div className="lg:w-2/3 w-full flex flex-col justify-center h-full">
+                  <h3 className="text-3xl md:text-4xl font-bold mb-2">{item.client}</h3>
+                  <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-8">{item.tags}</p>
+                  
+                  <div className="space-y-4 text-slate-600 mb-10 text-lg leading-relaxed">
+                    {item.description.split('\n\n').map((paragraph, i) => (
+                      <p key={i}>{paragraph}</p>
+                    ))}
+                  </div>
+
+                  {/* Metrics */}
+                  <div className="grid sm:grid-cols-2 gap-8 pt-8 border-t border-slate-200">
+                    {item.metrics.map((metric, i) => (
+                      <div key={i}>
+                        <h4 className="text-4xl font-black text-slate-900 mb-2">{metric.value}</h4>
+                        <p className="text-sm font-medium text-slate-500">{metric.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. THE GROWTH SUITE */}
       <section id="services" className="bg-[#0a0f18] py-32 border-t border-white/5">
         <div className="container mx-auto px-6 md:px-12">
           <div className="mb-20">
