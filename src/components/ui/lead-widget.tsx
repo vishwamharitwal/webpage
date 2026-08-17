@@ -36,14 +36,66 @@ export function LeadWidget() {
     let botResponse = "I'm still learning! For the most accurate advice, I recommend switching to the 'Callback' tab so one of our human growth experts can assist you.";
     const lowerInput = userMessage.toLowerCase();
 
-    if (lowerInput.includes("price") || lowerInput.includes("cost") || lowerInput.includes("fee")) {
-      botResponse = "Our growth systems are custom-engineered based on your specific scale and goals. Please request a callback so we can give you an accurate assessment.";
-    } else if (lowerInput.includes("service") || lowerInput.includes("do you do") || lowerInput.includes("offer")) {
-      botResponse = "We offer a complete Growth Suite: Brand Architecture, UI/UX Engineering, Performance Marketing, and AI Automation. Which area are you looking to improve?";
-    } else if (lowerInput.includes("contact") || lowerInput.includes("call") || lowerInput.includes("talk")) {
-      botResponse = "The fastest way to reach us is by clicking the 'Callback' tab above, or using the direct WhatsApp/Call buttons at the bottom of this window!";
-    } else if (lowerInput.includes("hi") || lowerInput.includes("hello") || lowerInput.includes("hey")) {
-      botResponse = "Hello there! Are you looking to scale your business, improve your website, or run better ads?";
+    const intents = [
+      {
+        keywords: ["price", "cost", "fee", "budget", "pricing", "charge", "money", "how much"],
+        response: "Our growth systems are custom-engineered based on your specific scale and goals. Please request a callback so we can give you an accurate assessment and ROI projection."
+      },
+      {
+        keywords: ["service", "do you do", "offer", "help with", "what can you"],
+        response: "We offer a complete Growth Suite: Brand Architecture, UI/UX Engineering, Performance Marketing (Ads), SEO, and AI Automation. Which area are you looking to improve?"
+      },
+      {
+        keywords: ["contact", "call", "talk", "reach", "email", "phone", "number"],
+        response: "The fastest way to reach us is by clicking the 'Callback' tab above, or using the direct WhatsApp/Call buttons at the bottom of this window! We usually reply within 15 minutes."
+      },
+      {
+        keywords: ["hi", "hello", "hey", "hola", "namaste", "greetings", "good morning"],
+        response: "Hello there! 👋 Are you looking to scale your business, improve your website, or run better ads?"
+      },
+      {
+        keywords: ["seo", "rank", "google search", "traffic", "organic"],
+        response: "We build technical SEO and content engines that drive high-intent organic traffic. It usually takes 3-6 months to see massive ROI. Want to audit your current site?"
+      },
+      {
+        keywords: ["ads", "facebook", "instagram", "meta", "google ads", "ppc", "roas", "campaign", "marketing"],
+        response: "We don't just run ads; we build conversion systems. We handle creatives, copywriting, media buying, and landing page optimization to maximize your ROAS. Are you running ads currently?"
+      },
+      {
+        keywords: ["web", "design", "development", "site", "landing page", "ui", "ux", "create"],
+        response: "Your website is your best salesperson. We engineer high-conversion, blazing-fast websites using modern tech that turn clicks into pipeline."
+      },
+      {
+        keywords: ["time", "how long", "duration", "fast", "speed", "when"],
+        response: "Speed is our standard. Most high-performance landing pages and funnels are deployed within 2-4 weeks, while ad campaigns can launch in 7-10 days."
+      },
+      {
+        keywords: ["location", "where", "office", "based", "city", "country", "address"],
+        response: "We work with ambitious clients globally! Since we operate as a digital-first growth partner, we can scale your brand no matter where you are based."
+      },
+      {
+        keywords: ["portfolio", "case study", "work", "examples", "past clients", "results", "proof"],
+        response: "We let our numbers do the talking. You can check out our 'Portfolio' section on the website, or request a callback to see industry-specific case studies."
+      },
+      {
+        keywords: ["who", "about", "team", "agency", "marketix"],
+        response: "MarketiX Media is an elite growth partner. We aren't a traditional agency that just delivers files; we engineer end-to-end systems that drive predictable revenue."
+      },
+      {
+        keywords: ["free", "audit", "consultation", "strategy session", "meeting", "book"],
+        response: "Yes! We offer a free, no-obligation Strategy Session. Just switch to the 'Callback' or 'Scheduler' tab to book your slot, and we'll analyze your current bottlenecks."
+      },
+      {
+        keywords: ["thanks", "thank you", "ok", "okay", "great", "awesome", "good"],
+        response: "You're welcome! Let me know if you have any other questions, or just hit that Callback button when you're ready to scale. 🚀"
+      }
+    ];
+
+    for (const intent of intents) {
+      if (intent.keywords.some(kw => lowerInput.includes(kw))) {
+        botResponse = intent.response;
+        break;
+      }
     }
 
     setChatMessages(prev => [...prev, { role: "bot", text: botResponse }]);
