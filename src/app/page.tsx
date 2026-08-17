@@ -214,27 +214,29 @@ export default function Home() {
       </section>
 
       {/* 3. ABOUT MARKETIX MEDIA */}
-      <section className="py-32 container mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-16 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="md:w-1/2"
-        >
-          <p className="text-accent font-semibold uppercase tracking-wider mb-4">OUR POSITIONING</p>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8">Marketing generates noise.<br />Systems generate revenue.</h2>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="md:w-1/2 space-y-6 text-lg text-secondary/70"
-        >
-          <p>Most ambitious businesses stall for a simple reason: fragmentation. They hire one agency for web design, another for ad management, and individual freelancers for content. The result is brand dilution, broken tracking, and wasted capital.</p>
-          <p className="text-white font-medium">MarketiX Media operates as your embedded growth engine. We eliminate the chaos between brand perception and performance marketing, engineering cohesive systems that turn cold attention into long-term commercial value.</p>
-        </motion.div>
+      <section className="bg-white text-slate-900 py-32">
+        <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="md:w-1/2"
+          >
+            <p className="text-accent font-semibold uppercase tracking-wider mb-4">OUR POSITIONING</p>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8">Marketing generates noise.<br />Systems generate revenue.</h2>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="md:w-1/2 space-y-6 text-lg text-slate-600"
+          >
+            <p>Most ambitious businesses stall for a simple reason: fragmentation. They hire one agency for web design, another for ad management, and individual freelancers for content. The result is brand dilution, broken tracking, and wasted capital.</p>
+            <p className="text-slate-900 font-medium">MarketiX Media operates as your embedded growth engine. We eliminate the chaos between brand perception and performance marketing, engineering cohesive systems that turn cold attention into long-term commercial value.</p>
+          </motion.div>
+        </div>
       </section>
 
       {/* 4. THE GROWTH SUITE */}
@@ -271,46 +273,48 @@ export default function Home() {
       </section>
 
       {/* 5. WHY MARKETIX MEDIA & 6. OUR APPROACH */}
-      <section id="approach" className="py-32 container mx-auto px-6 md:px-12">
-        <div className="grid lg:grid-cols-2 gap-24">
+      <section id="approach" className="bg-slate-50 text-slate-900 py-32">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid lg:grid-cols-2 gap-24">
 
-          {/* Why Us */}
-          <div>
-            <p className="text-accent font-semibold uppercase tracking-wider mb-4">THE DIFFERENCE</p>
-            <h2 className="text-4xl font-bold tracking-tight mb-12">Why modern operators choose a growth partner over a traditional agency.</h2>
+            {/* Why Us */}
+            <div>
+              <p className="text-accent font-semibold uppercase tracking-wider mb-4">THE DIFFERENCE</p>
+              <h2 className="text-4xl font-bold tracking-tight mb-12">Why modern operators choose a growth partner over a traditional agency.</h2>
 
-            <div className="space-y-10">
-              {differences.map((item, i) => (
-                <div key={i}>
-                  <h4 className="text-xl font-bold mb-2 flex items-center gap-3">
-                    <span className="text-accent text-sm">{(i + 1).toString().padStart(2, '0')}</span>
-                    {item.t}
-                  </h4>
-                  <p className="text-secondary/60 pl-8">{item.d}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Approach */}
-          <div>
-            <div className="sticky top-32 bg-white/5 border border-white/10 p-10 rounded-3xl">
-              <p className="text-accent font-semibold uppercase tracking-wider mb-4">THE METHODOLOGY</p>
-              <h2 className="text-3xl font-bold tracking-tight mb-12">Four steps to predictable scale.</h2>
-
-              <div className="relative border-l border-white/10 pl-8 space-y-12">
-                {methodology.map((step, i) => (
-                  <div key={i} className="relative">
-                    <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-[#111827] border-2 border-accent"></div>
-                    <span className="text-xs text-accent uppercase tracking-wider font-semibold mb-2 block">{step.p}</span>
-                    <h4 className="text-lg font-bold mb-3">{step.h}</h4>
-                    <p className="text-secondary/60 text-sm">{step.d}</p>
+              <div className="space-y-10">
+                {differences.map((item, i) => (
+                  <div key={i}>
+                    <h4 className="text-xl font-bold mb-2 flex items-center gap-3">
+                      <span className="text-accent text-sm">{(i + 1).toString().padStart(2, '0')}</span>
+                      {item.t}
+                    </h4>
+                    <p className="text-slate-600 pl-8">{item.d}</p>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
 
+            {/* Approach */}
+            <div>
+              <div className="sticky top-32 bg-white border border-slate-200 shadow-xl p-10 rounded-3xl">
+                <p className="text-accent font-semibold uppercase tracking-wider mb-4">THE METHODOLOGY</p>
+                <h2 className="text-3xl font-bold tracking-tight mb-12">Four steps to predictable scale.</h2>
+
+                <div className="relative border-l border-slate-200 pl-8 space-y-12">
+                  {methodology.map((step, i) => (
+                    <div key={i} className="relative">
+                      <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-white border-2 border-accent"></div>
+                      <span className="text-xs text-accent uppercase tracking-wider font-semibold mb-2 block">{step.p}</span>
+                      <h4 className="text-lg font-bold mb-3">{step.h}</h4>
+                      <p className="text-slate-600 text-sm">{step.d}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
@@ -365,36 +369,38 @@ export default function Home() {
       </section>
 
       {/* 9. FAQS */}
-      <section className="py-32 container mx-auto px-6 md:px-12 max-w-4xl">
-        <p className="text-accent font-semibold uppercase tracking-wider mb-4 text-center">FAQS</p>
-        <h2 className="text-4xl font-bold tracking-tight mb-16 text-center">Direct answers to critical questions.</h2>
+      <section className="bg-white text-slate-900 py-32 border-t border-slate-100">
+        <div className="container mx-auto px-6 md:px-12 max-w-4xl">
+          <p className="text-accent font-semibold uppercase tracking-wider mb-4 text-center">FAQS</p>
+          <h2 className="text-4xl font-bold tracking-tight mb-16 text-center">Direct answers to critical questions.</h2>
 
-        <div className="space-y-4">
-          {faqs.map((faq, i) => (
-            <div key={i} className="border border-white/10 rounded-2xl overflow-hidden bg-white/5">
-              <button
-                className="w-full text-left px-8 py-6 flex justify-between items-center hover:bg-white/5 transition-colors"
-                onClick={() => setOpenFaq(openFaq === i ? null : i)}
-              >
-                <span className="font-semibold text-lg pr-8">{faq.q}</span>
-                <ChevronDown className={`transform transition-transform ${openFaq === i ? "rotate-180 text-accent" : "text-secondary/40"}`} />
-              </button>
-              <AnimatePresence>
-                {openFaq === i && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="px-8 pb-6 pt-2 text-secondary/60 leading-relaxed border-t border-white/10 mt-2">
-                      {faq.a}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+          <div className="space-y-4">
+            {faqs.map((faq, i) => (
+              <div key={i} className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50">
+                <button
+                  className="w-full text-left px-8 py-6 flex justify-between items-center hover:bg-slate-100 transition-colors"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                >
+                  <span className="font-semibold text-lg pr-8">{faq.q}</span>
+                  <ChevronDown className={`transform transition-transform ${openFaq === i ? "rotate-180 text-accent" : "text-slate-400"}`} />
+                </button>
+                <AnimatePresence>
+                  {openFaq === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-8 pb-6 pt-2 text-slate-600 leading-relaxed border-t border-slate-200 mt-2">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
