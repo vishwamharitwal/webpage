@@ -7,10 +7,14 @@ export function MagneticButton({
   children,
   className = "",
   href,
+  target,
+  rel,
 }: {
   children: React.ReactNode;
   className?: string;
   href?: string;
+  target?: string;
+  rel?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -38,7 +42,7 @@ export function MagneticButton({
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
       className="inline-block"
     >
-      <a href={href} className={`${className} relative overflow-hidden group`}>
+      <a href={href} target={target} rel={rel} className={`${className} relative overflow-hidden group`}>
         {/* Shimmer effect overlay */}
         <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer" />
         {children}

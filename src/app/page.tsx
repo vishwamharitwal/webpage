@@ -128,7 +128,7 @@ export default function Home() {
           <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl z-10 mx-auto pointer-events-auto">
             <motion.p variants={fadeIn} className="text-accent font-semibold tracking-wider uppercase mb-6 flex items-center justify-center gap-2">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-              MARKETING AGENCY REIMAGINED
+              BUILT FOR SCALE
             </motion.p>
             <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-tight">
               Businesses don’t need more marketing.<br />
@@ -155,7 +155,9 @@ export default function Home() {
             </motion.p>
             <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <MagneticButton
-                href="#contact"
+                href="https://wa.me/917340021807?text=Hi%20MarketiX%20Media,%20I'm%20interested%20in%20booking%20a%20Strategy%20Session."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-4 bg-accent hover:bg-blue-700 text-white font-semibold rounded-full transition-all flex items-center justify-center gap-2 block"
               >
                 <span className="relative z-10 flex items-center gap-2">Book a Strategy Session <ArrowRight size={20} /></span>
@@ -406,7 +408,9 @@ export default function Home() {
             Schedule a 30-minute growth assessment with our senior team. We’ll analyze your current acquisition channels, identify conversion leaks, and outline an actionable growth architecture for your business.
           </p>
           <MagneticButton
-            href="#contact"
+            href="https://wa.me/917340021807?text=Hi%20MarketiX%20Media,%20I'm%20interested%20in%20booking%20a%20Strategy%20Session."
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent hover:bg-blue-700 text-white font-bold rounded-full transition-colors mb-6"
           >
             <span className="relative z-10 flex items-center gap-2">Schedule Your Strategy Session <ArrowRight size={20} /></span>

@@ -46,7 +46,9 @@ export default function Navbar() {
             </Link>
           ))}
           <MagneticButton
-            href="#contact"
+            href="https://wa.me/917340021807?text=Hi%20MarketiX%20Media,%20I'm%20interested%20in%20booking%20a%20Strategy%20Session."
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-6 py-2.5 bg-accent hover:bg-blue-700 text-white text-sm font-semibold rounded-full transition-colors inline-block"
           >
             <span className="relative z-10">Book a Call</span>
@@ -80,7 +82,9 @@ export default function Navbar() {
                 </Link>
               ))}
               <MagneticButton
-                href="#contact"
+                href="https://wa.me/917340021807?text=Hi%20MarketiX%20Media,%20I'm%20interested%20in%20booking%20a%20Strategy%20Session."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full block text-center px-5 py-3 bg-accent text-white font-semibold rounded-lg mt-4"
               >
                 <span className="relative z-10">Book a Call</span>

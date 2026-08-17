@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="md:col-span-1">
           <h2 className="text-2xl font-bold tracking-tighter text-secondary mb-4">
-            Marketix<span className="text-accent">.</span>
+            MarketiX Media<span className="text-accent">.</span>
           </h2>
           <p className="text-secondary/60 mb-6">
             Engineering growth systems for ambitious businesses.
@@ -31,7 +31,7 @@ export default function Footer() {
             <li><Link href="#approach" className="text-secondary/60 hover:text-accent transition-colors">Our Approach</Link></li>
             <li><Link href="#portfolio" className="text-secondary/60 hover:text-accent transition-colors">Featured Work</Link></li>
             <li><Link href="#industries" className="text-secondary/60 hover:text-accent transition-colors">Industries</Link></li>
-            <li><Link href="#contact" className="text-secondary/60 hover:text-accent transition-colors">Book a Call</Link></li>
+            <li><Link href="https://wa.me/917340021807?text=Hi%20MarketiX%20Media,%20I'm%20interested%20in%20booking%20a%20Strategy%20Session." target="_blank" rel="noopener noreferrer" className="text-secondary/60 hover:text-accent transition-colors">Book a Call</Link></li>
           </ul>
         </div>
 
