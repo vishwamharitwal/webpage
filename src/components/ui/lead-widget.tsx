@@ -13,6 +13,43 @@ export function LeadWidget() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
+  // Chat State
+  const [chatMessages, setChatMessages] = useState<{role: "bot" | "user", text: string}[]>([
+    { role: "bot", text: "Hi! I'm MarketiX AI. How can I help you scale your business today?" }
+  ]);
+  const [chatInput, setChatInput] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+
+  // Simple If-Else Bot Logic
+  const handleSendMessage = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!chatInput.trim()) return;
+
+    const userMessage = chatInput.trim();
+    setChatMessages(prev => [...prev, { role: "user", text: userMessage }]);
+    setChatInput("");
+    setIsTyping(true);
+
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    let botResponse = "I'm still learning! For the most accurate advice, I recommend switching to the 'Callback' tab so one of our human growth experts can assist you.";
+    const lowerInput = userMessage.toLowerCase();
+
+    if (lowerInput.includes("price") || lowerInput.includes("cost") || lowerInput.includes("fee")) {
+      botResponse = "Our growth systems are custom-engineered based on your specific scale and goals. Please request a callback so we can give you an accurate assessment.";
+    } else if (lowerInput.includes("service") || lowerInput.includes("do you do") || lowerInput.includes("offer")) {
+      botResponse = "We offer a complete Growth Suite: Brand Architecture, UI/UX Engineering, Performance Marketing, and AI Automation. Which area are you looking to improve?";
+    } else if (lowerInput.includes("contact") || lowerInput.includes("call") || lowerInput.includes("talk")) {
+      botResponse = "The fastest way to reach us is by clicking the 'Callback' tab above, or using the direct WhatsApp/Call buttons at the bottom of this window!";
+    } else if (lowerInput.includes("hi") || lowerInput.includes("hello") || lowerInput.includes("hey")) {
+      botResponse = "Hello there! Are you looking to scale your business, improve your website, or run better ads?";
+    }
+
+    setChatMessages(prev => [...prev, { role: "bot", text: botResponse }]);
+    setIsTyping(false);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -160,10 +197,50 @@ export function LeadWidget() {
               )}
 
               {activeTab === "ai" && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-10 text-center">
-                  <Bot size={48} className="mx-auto text-slate-300 mb-4" />
-                  <h4 className="font-bold text-slate-900">MarketiX AI Advisor</h4>
-                  <p className="text-sm text-slate-500 mt-2">Our AI agent is currently analyzing market data. Please request a callback for immediate assistance.</p>
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col h-[350px]">
+                  {/* Chat Messages */}
+                  <div className="flex-1 overflow-y-auto p-2 space-y-3 custom-scrollbar">
+                    {chatMessages.map((msg, idx) => (
+                      <div key={idx} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                        <div className={`max-w-[85%] p-3 rounded-2xl text-sm ${
+                          msg.role === "user" 
+                            ? "bg-[#FF6B35] text-white rounded-br-sm" 
+                            : "bg-slate-100 text-slate-800 rounded-bl-sm"
+                        }`}>
+                          {msg.text}
+                        </div>
+                      </div>
+                    ))}
+                    {isTyping && (
+                      <div className="flex justify-start">
+                        <div className="bg-slate-100 text-slate-500 p-3 rounded-2xl rounded-bl-sm text-sm flex gap-1 items-center">
+                          <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></span>
+                          <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></span>
+                          <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: "0.4s" }}></span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Chat Input */}
+                  <div className="mt-3 pt-3 border-t border-slate-100 shrink-0">
+                    <form onSubmit={handleSendMessage} className="relative">
+                      <input 
+                        type="text" 
+                        value={chatInput}
+                        onChange={(e) => setChatInput(e.target.value)}
+                        placeholder="Ask about our services..." 
+                        className="w-full pl-4 pr-12 py-3 bg-slate-50 border border-slate-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6B35]/20 focus:border-[#FF6B35]"
+                      />
+                      <button 
+                        type="submit" 
+                        disabled={!chatInput.trim() || isTyping}
+                        className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-[#FF6B35] text-white rounded-full flex items-center justify-center disabled:opacity-50 transition-opacity"
+                      >
+                        <Sparkles size={14} />
+                      </button>
+                    </form>
+                  </div>
                 </motion.div>
               )}
             </div>
