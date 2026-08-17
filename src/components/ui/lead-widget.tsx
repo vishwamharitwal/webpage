@@ -107,16 +107,7 @@ export function LeadWidget() {
     setIsSubmitting(true);
     
     try {
-      // NOTE: We will replace this URL with your Google Apps Script URL later
       const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxihT1qZn7-CGV3INT57FiodnGgGASiya7xmL8Clv7FIVn2n0cqYgs0HBdHVjqrkxx-vw/exec";
-      
-      if (GOOGLE_SCRIPT_URL === "YOUR_GOOGLE_SCRIPT_URL_HERE") {
-        // Mock successful submission for now if URL is not set
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setIsSuccess(true);
-        setTimeout(() => { setIsSuccess(false); setFormData({ name: "", email: "", phone: "", website: "" }); }, 3000);
-        return;
-      }
 
       await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
