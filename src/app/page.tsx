@@ -25,7 +25,7 @@ import { MagneticButton } from "@/components/ui/magnetic-button";
 
 const heroTexts = [
   "predictable growth.",
-  "brand equity.",
+  "more qualified leads.",
   "higher ROI.",
   "market dominance."
 ];
