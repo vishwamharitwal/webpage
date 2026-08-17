@@ -6,7 +6,7 @@ import { Sparkles, MessageCircle, Phone, Mail, X, Calendar, PhoneCall, Bot } fro
 
 export function LeadWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("callback"); // 'callback', 'scheduler', 'ai'
+  const [activeTab, setActiveTab] = useState<"callback" | "ai">("callback");
   
   // Form State
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", website: "" });
@@ -83,7 +83,7 @@ export function LeadWidget() {
       },
       {
         keywords: ["free", "audit", "consultation", "strategy session", "meeting", "book"],
-        response: "Yes! We offer a free, no-obligation Strategy Session. Just switch to the 'Callback' or 'Scheduler' tab to book your slot, and we'll analyze your current bottlenecks."
+        response: "Yes! We offer a free, no-obligation Strategy Session. Just switch to the 'Callback' tab to book your slot, and we'll analyze your current bottlenecks."
       },
       {
         keywords: ["thanks", "thank you", "ok", "okay", "great", "awesome", "good"],
@@ -168,29 +168,19 @@ export function LeadWidget() {
             <div className="overflow-y-auto flex-1 custom-scrollbar">
               {/* Tabs */}
               <div className="flex border-b border-slate-200 bg-slate-50 shrink-0">
-                <button
-                  onClick={() => setActiveTab("callback")}
-                  className={`flex-1 py-3 text-sm font-semibold flex items-center justify-center gap-2 transition-colors ${
-                    activeTab === "callback" ? "text-[#FF6B35] bg-white border-t-2 border-[#FF6B35]" : "text-slate-500 hover:text-slate-700"
-                  }`}
+                <button 
+                  onClick={() => setActiveTab('callback')}
+                  className={`flex-1 py-3 text-sm font-semibold flex items-center justify-center gap-2 transition-colors relative ${activeTab === 'callback' ? 'text-[#FF6B35]' : 'text-slate-500 hover:text-slate-700'}`}
                 >
                   <PhoneCall size={16} /> Callback
+                  {activeTab === 'callback' && <motion.div layoutId="activeTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#FF6B35]" />}
                 </button>
-                <button
-                  onClick={() => setActiveTab("scheduler")}
-                  className={`flex-1 py-3 text-sm font-semibold flex items-center justify-center gap-2 transition-colors ${
-                    activeTab === "scheduler" ? "text-[#FF6B35] bg-white border-t-2 border-[#FF6B35]" : "text-slate-500 hover:text-slate-700"
-                  }`}
+                <button 
+                  onClick={() => setActiveTab('ai')}
+                  className={`flex-1 py-3 text-sm font-semibold flex items-center justify-center gap-2 transition-colors relative ${activeTab === 'ai' ? 'text-[#FF6B35]' : 'text-slate-500 hover:text-slate-700'}`}
                 >
-                  <Calendar size={16} /> Scheduler
-                </button>
-                <button
-                  onClick={() => setActiveTab("ai")}
-                  className={`flex-1 py-3 text-sm font-semibold flex items-center justify-center gap-2 transition-colors ${
-                    activeTab === "ai" ? "text-[#FF6B35] bg-white border-t-2 border-[#FF6B35]" : "text-slate-500 hover:text-slate-700"
-                  }`}
-                >
-                  <Bot size={16} /> AI Advisor
+                  <Bot size={18} /> AI Advisor
+                  {activeTab === 'ai' && <motion.div layoutId="activeTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#FF6B35]" />}
                 </button>
               </div>
 
@@ -236,17 +226,6 @@ export function LeadWidget() {
                     )}
                   </motion.div>
                 )}
-
-              {activeTab === "scheduler" && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-10 text-center">
-                  <Calendar size={48} className="mx-auto text-slate-300 mb-4" />
-                  <h4 className="font-bold text-slate-900">Schedule a Meeting</h4>
-                  <p className="text-sm text-slate-500 mt-2 mb-4">Pick a time that works best for you on our calendar.</p>
-                  <a href="https://wa.me/917340021807?text=Hi%20MarketiX%20Media,%20I'm%20interested%20in%20booking%20a%20Strategy%20Session." target="_blank" rel="noopener noreferrer" className="inline-block bg-[#111827] text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-slate-800 transition-colors">
-                    Open Scheduler
-                  </a>
-                </motion.div>
-              )}
 
               {activeTab === "ai" && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col h-[350px]">
